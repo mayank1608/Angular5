@@ -1,0 +1,28 @@
+<div class="container">
+<div class="row">
+	<div class="col-sm-6 alert-primary p-4">
+		<div class="col-sm-12">
+			<p>Use this form below to add a new bucket list goal.</p>
+			<form name="goalform">
+				<input type="text" class="form-control" required  name="item" placeholder="Life goal..." [(ngModel)]="goalText"><br>
+				<input type="submit" class="btn btn-danger" name="" [value]="btnText" (click)="addItem()" ng-required="goalText">
+			</form>
+		</div>
+		
+	</div>
+
+	<div class="col-sm-6 alert-danger p-4">
+		<div class="col-sm-12">
+			<p>Add a bucket list item</p>
+		</div>
+		<div class="col-sm-12">
+			<p>Your bucket list {{ itemCount }}</p>
+		</div>
+		<div class="col-sm-12 mt-4"  [@goals]="goals.length">
+		<div class="alert alert-success" role="alert" *ngFor="let goal of goals; let i=index" (click)="removeItem(i)">
+  				{{ goal }}
+		</div>
+		</div>
+	</div>	
+</div>
+</div>
